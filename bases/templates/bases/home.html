@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+
+{% block side_bar %}{% endblock %}
+
+{% block page_content %}{% endblock %}
+{% block footer %}{% endblock %}
+
+
+{% block registrar %}
+
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Solicitar Hora</h1>
+              </div>
+              <form class="user">
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombre">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellido">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Correo">
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="marca" placeholder="Marca">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" id="modelo" placeholder="Modelo">
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <label for="daytime"></label>
+                    <input type="datetime-local" class="form-control" id="daytime" name="daytime">
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <label for="servicio"></label>
+                    <input list="desc_servicio" class="form-control" name="servicio" method="get" id="servicio" placeholder="Elije tu servicio:">
+                    <datalist id="desc_servicio">
+                        {% if not objserv %}
+                        <option value="nada">
+                        {% endif %}
+                        {% for serv in objserv %}
+                            <option value= >{{ serv.desc_servicio }}</option>
+                        {% endfor %}
+
+                    </datalist>
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <label for="especialista"></label>
+                    <input list="especialistas" class="form-control" name="especialista" id="especialista" placeholder="Elije el especialista:">
+                    <datalist id="especialistas">
+                        <option value="alfred">
+                        <option value="tod">
+                        <option value="charlie">
+                    </datalist>
+                  </div>
+                </div>
+                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                  Solicitar
+                </a>
+               
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+{% endblock registrar %}  
