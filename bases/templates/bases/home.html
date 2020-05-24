@@ -52,7 +52,7 @@
                         <option value="nada">
                         {% endif %}
                         {% for serv in objserv %}
-                            <option value= >{{ serv.desc_servicio }}</option>
+                            <option value={{ serv.desc_servicio }} >
                         {% endfor %}
 
                     </datalist>
@@ -61,16 +61,19 @@
                     <label for="especialista"></label>
                     <input list="especialistas" class="form-control" name="especialista" id="especialista" placeholder="Elije el especialista:">
                     <datalist id="especialistas">
-                        <option value="alfred">
-                        <option value="tod">
-                        <option value="charlie">
+                        {% if not objempl %}
+                        <option value="nada">
+                        {% endif %}
+                        {% for empl in objempl %}
+                            <option value={{ empl.p_nombre_empleado }} >
+                        {% endfor %}
                     </datalist>
                   </div>
                 </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                <button href="gracias/" class="btn btn-primary btn-user btn-block">
                   Solicitar
-                </a>
-               
+                </button>
+
               </form>
             </div>
           </div>

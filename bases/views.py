@@ -11,17 +11,13 @@ class Home(LoginRequiredMixin, generic.TemplateView):
     template_name = 'bases/home.html'
     login_url='bases:login'
 
-class ListarServicio(generic.ListView):
-    template_name = 'bases/registrar.html'
-    model = Servicio
-    context_object_name = "objserv"    
-    ogin_url='bases:login'
+    def get_context_data(self, *args, **kwargs):
+            servicio = Servicio.objects.all()
+            empleado = Empleado.objects.all()
+            return {'objserv': servicio, 'objempl': empleado}
+   
+class Gracias(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'bases/gracias.html'
+    login_url='bases:login'
 
-
-
-class ListarEmpleado(generic.ListView):
-    template_name = 'bases/registrar.html'
-    model = Empleado
-    context_object_name = "objempl"    
-    ogin_url='bases:login'
 
