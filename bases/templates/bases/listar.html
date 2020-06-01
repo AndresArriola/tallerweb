@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% block side_bar %}{% endblock %}
+
+{% block page_content %}{% endblock %}
+
+
+{% block listar %}
+
+<div class="card o-hidden border-0 shadow-lg my-5">
+<table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <h2>Solicitudes</h2>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Correo</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Servicio</th>
+      <th>Especialista</th>
+    </tr>
+   
+        {% if not objresv %}
+        <td>Sin Datos</td>
+        {% endif %}
+    {% for serv in objresv %}  
+    <tr> 
+      <td>{{ serv.nombre }}</td>
+      <td>{{ serv.apellido }}</td>
+      <td>{{ serv.correo }}</td>
+      <td>{{ serv.marca }}</td>
+      <td>{{ serv.modelo }}</td>
+      <td>{{ serv.servicio }}</td>
+      <td>{{ serv.especialista }}</td>
+    </tr>
+    {% endfor %}  
+   
+</table>
+
+
+{% endblock listar %}  
+{% block footer %}{% endblock %}

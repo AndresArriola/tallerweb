@@ -38,3 +38,29 @@ class Empleado(models.Model):
     class Meta:
         managed = False
         db_table = 'empleado'        
+
+class Reserva(models.Model):
+    id_reserva = models.AutoField(primary_key=True)
+    fecha_reserva = models.DateField()
+    hora_reserva = models.DateField()
+    id_cliente = models.IntegerField(blank=True, null=True)
+    id_servicio = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'reserva'
+
+class Reserva2(models.Model):
+    id_reserva = models.IntegerField(primary_key=True)
+    fecha_reserva = models.DateTimeField()
+    nombre = models.CharField(max_length=25)
+    apellido = models.CharField(max_length=25)
+    marca = models.CharField(max_length=25)
+    modelo = models.CharField(max_length=25)
+    correo = models.CharField(max_length=40)
+    servicio = models.CharField(max_length=25)
+    especialista = models.CharField(max_length=25)
+
+    class Meta:
+        managed = False
+        db_table = 'reserva2'

@@ -3,14 +3,19 @@
 <html lang="en">
 
 <head>
-
+  {# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %}   
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>TALLER</title>
+  <title>{% block title %}{% endblock %} | SERVIEXPRESS</title>
+  <link rel="shortcut icon" type="image/png" href="{% static '/base/img/logop.png' %}">
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'base/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -157,7 +162,34 @@
           </button>
 
           <!-- aca dejar top asd -->
-          
+         <!-- Topbar Navbar -->
+          <a class="navbar-brand" href="/">SERVIEXPRESS</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml">
+              <li class="nav-item active">
+                <a class="nav-link" href="/registrar">Solicitudes <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/estado">Estados</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Factura</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Listar.html">Listar</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'bases:logout' %}">Salir</a>
+              </li>
+              {% comment %} <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> {% endcomment %}
+            </ul>
+          </div> 
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -320,9 +352,21 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
+        
         </div>
         {% endblock page_content %}
+
+        {% block registrar2 %}
+        
+        {% endblock registrar2 %}  
+        {% block listar %}
+
+        {% endblock listar %}  
+        {% block registrar %} 
+ 
+        {% endblock registrar %}  
+
+
         <!-- /.container-fluid -->
         {% block footer %}
 
@@ -347,7 +391,7 @@
   <!-- End of Page Wrapper -->
 
   {% block login %} {% endblock login %}
-  {% block registrar %} {% endblock registrar %}  
+ 
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -383,10 +427,11 @@
   <!-- Custom scripts for all pages-->
   <script src="{% static 'base/js/sb-admin-2.min.js' %}"></script>
   <!-- this should go after your </body> -->
-  <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
+  <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css" >
   <script src="/jquery.js"></script>
   <script src="/build/jquery.datetimepicker.full.min.js"></script>
-
+  
+  {% bootstrap_javascript jquery='full' %}
   {% block js_page %} {% endblock js_page %}
 </body>
 

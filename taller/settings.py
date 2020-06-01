@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'bases',
     'inv',
     'bootstrap_datepicker_plus',
+    'widget_tweaks',
+    'bootstrap4',
+    'betterforms'
 ]
 
 MIDDLEWARE = [
