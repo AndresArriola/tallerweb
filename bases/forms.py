@@ -5,9 +5,9 @@ from .models import Reserva2,Empleado,Servicio
 class Reservaform(ModelForm):
     class Meta:
         model=Reserva2
-        fields= {'fecha_reserva' ,'nombre','apellido','marca','modelo','correo','servicio','especialista'}
-        labels = { 'fecha_reserva': 'Fecha' ,'nombre': 'Nombre',
-        'apellido': 'Apellido','marca': 'Marca','modelo': 'Modelo','correo': 'Correo',
+        fields= {'nombre','apellido','correo','fecha_reserva' ,'marca','modelo','servicio','especialista'}
+        labels = { 'nombre': 'Nombre','apellido': 'Apellido','correo': 'Correo','fecha_reserva': 'Fecha' ,
+        'marca': 'Marca','modelo': 'Modelo',
         'servicio': 'Servicio','especialista': 'Especialista'
         }
         widget={ 'fecha_reserva': DateTimeInput ,'nombre': TextInput,
